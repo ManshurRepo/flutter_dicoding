@@ -771,7 +771,7 @@ class ScrollingScreen extends StatelessWidget {
 } */
 
 //Expanded & flexible
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 
 void main() {
   runApp(Rainbow());
@@ -802,5 +802,296 @@ class Rainbow extends StatelessWidget {
         ),
       ],
     );
+  }
+}*/
+
+/*import 'package:flutter/material.dart';
+void main() {
+  runApp(ExpandedFlexiblePage());
+}
+
+class ExpandedFlexiblePage extends StatelessWidget {
+  const ExpandedFlexiblePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            Row(
+              children: const [
+                ExpandedWidget(),
+                FlexibleWidget(),
+              ],
+            ),
+            Row(
+              children: const [
+                ExpandedWidget(),
+                ExpandedWidget(),
+              ],
+            ),
+          ],
+        ),
+      ),
+    ));
+  }
+}
+
+class ExpandedWidget extends StatelessWidget {
+  const ExpandedWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.teal,
+          border: Border.all(color: Colors.white),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text(
+            'Expanded',
+            style: TextStyle(
+                color: Colors.white, fontSize: 24, fontFamily: 'Oswald'),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class FlexibleWidget extends StatelessWidget {
+  const FlexibleWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Flexible(
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.tealAccent,
+          border: Border.all(color: Colors.white),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text(
+            'Flexible',
+            style: TextStyle(
+              color: Colors.teal,
+              fontSize: 24,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+*/
+
+//Navigation
+
+/*import 'package:flutter/material.dart';
+
+void main() {
+  runApp(Visit_Bandung());
+}
+
+class Visit_Bandung extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: FirstScreen(),
+    );
+  }
+}
+
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('First Screen'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: const Text('Pindah Screen'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) {
+                return SecondScreen('Hello from first screen!');
+              }),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class SecondScreen extends StatelessWidget {
+  final String message;
+
+  const SecondScreen(this.message, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Second Screen"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(message),
+            OutlinedButton(
+              child: const Text('Kembali'),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}*/
+
+// Responsive Layout
+
+/*import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+
+    return Scaffold(
+      backgroundColor: Colors.blueGrey,
+      body: Row(
+        children: [
+          Expanded(
+            child: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'MediaQuery: ${screenSize.width.toStringAsFixed(2)}',
+                      style: const TextStyle(color: Colors.white, fontSize: 18),
+                    ),
+                    Text(
+                      'LayoutBuilder: ${constraints.maxWidth}',
+                      style: const TextStyle(color: Colors.white, fontSize: 18),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+          Expanded(
+            flex: 3,
+            child: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints Constraints) {
+                return Container(
+                  color: Colors.white,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        'MediaQuery: ${screenSize.width.toStringAsFixed(2)}',
+                        style: const TextStyle(
+                            color: Colors.blueGrey, fontSize: 18),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        'LayoutBuilder: ${Constraints.maxWidth}',
+                        style: const TextStyle(
+                            color: Colors.blueGrey, fontSize: 18),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}*/
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: ResponsivePage(),
+    );
+  }
+}
+
+class ResponsivePage extends StatelessWidget {
+  const ResponsivePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          if (constraints.maxWidth < 600) {
+            return ListView(
+              children: _generateContainers(),
+            );
+          } else {
+            return GridView.count(
+              crossAxisCount: 6,
+              children: _generateContainers(),
+            );
+          }
+        },
+      ),
+    );
+  }
+
+  List<Widget> _generateContainers() {
+    return List<Widget>.generate(10, (index) {
+      return Container(
+        margin: const EdgeInsets.all(8),
+        color: Colors.blueGrey,
+        height: 200,
+      );
+    });
   }
 }
